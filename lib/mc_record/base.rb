@@ -32,7 +32,7 @@ module McRecord
 
     # @param [String]
     def self.find(id)
-      raise ".find is only support String parameter." unless id.instance_of?(String)
+      raise "wrong type of argument(expected String)" unless id.instance_of?(String)
 
       # OpenStruct
       api_result = MicroCMS.get(
@@ -52,6 +52,8 @@ module McRecord
 
     # @param [Hash]
     def self.where(arg)
+      raise ArgumentError, "wrong type of argument(expected Hash)" unless arg.instance_of?(Hash)
+
       param = build_filter_params(arg)
 
       raise "param not specified" if param == ""
@@ -64,6 +66,8 @@ module McRecord
 
     # @param [Hash]
     def self.where_not(arg)
+      raise ArgumentError, "wrong type of argument(expected Hash)" unless arg.instance_of?(Hash)
+
       param = build_not_filter_params(arg)
 
       raise "param not specified" if param == ""

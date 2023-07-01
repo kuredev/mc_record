@@ -188,10 +188,13 @@ module McRecord
 
     private
 
+    # @param [String]
     def read_attribute(attr_name)
       @attributes.to_h[attr_name.to_sym]
     end
 
+    # @param attr_name [String]
+    # @param value [Object]
     def write_attribute(attr_name, value)
       @attributes[attr_name] = value
     end

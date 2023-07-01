@@ -182,6 +182,8 @@ module McRecord
       end
     end
 
+    private
+
     def read_attribute(attr_name)
       @attributes.to_h[attr_name.to_sym]
     end
